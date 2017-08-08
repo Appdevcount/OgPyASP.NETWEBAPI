@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1ad87e0f20964cc789a77e156c05a9fb" Name="Diagram1" ZoomLevel="66">
+        <EntityTypeShape EntityType="GlobalPayitModel.AppVersionConfiguration" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GlobalPayitModel.AppVersion" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GlobalPayitModel.Service" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GlobalPayitModel.Translation" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <AssociationConnector Association="GlobalPayitModel.FK_AppVersionConfiguration_AppVersions" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="GlobalPayitModel.CountryBranch" Width="1.5" PointX="8.375" PointY="0.75" />
+        <EntityTypeShape EntityType="GlobalPayitModel.TransactionsComplete" Width="1.5" PointX="3" PointY="5.25" />
+        <AssociationConnector Association="GlobalPayitModel.FK_TransactionsComplete_AppVersions" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

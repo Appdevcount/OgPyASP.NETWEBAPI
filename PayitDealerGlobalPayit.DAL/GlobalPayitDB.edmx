@@ -1,0 +1,536 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="GlobalPayitModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AppVersionConfiguration">
+          <Key>
+            <PropertyRef Name="AppVersionConfigID" />
+          </Key>
+          <Property Name="AppVersionConfigID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AppVersionID" Type="int" />
+          <Property Name="ServicesAndPaymentsID" Type="int" />
+          <Property Name="Code" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="isTesting" Type="bit" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="AppVersions">
+          <Key>
+            <PropertyRef Name="AppVersionID" />
+          </Key>
+          <Property Name="AppVersionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AppPlatformID" Type="int" />
+          <Property Name="AppID" Type="int" />
+          <Property Name="Code" Type="varchar" MaxLength="50" />
+          <Property Name="AppLink" Type="varchar" MaxLength="200" />
+          <Property Name="ShortLink" Type="varchar" MaxLength="200" />
+          <Property Name="Username" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="isMandatory" Type="bit" />
+          <Property Name="LiveDate" Type="smalldatetime" />
+          <Property Name="VersionNumber" Type="float" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="SecretKey" Type="varchar" MaxLength="500" />
+          <Property Name="SecureSecretKey" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="CountryBranches">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="50" />
+          <Property Name="CountryID" Type="int" />
+          <Property Name="FacebookURL" Type="varchar" MaxLength="500" />
+          <Property Name="TwitterURL" Type="varchar" MaxLength="500" />
+          <Property Name="InstagramURL" Type="varchar" MaxLength="500" />
+          <Property Name="YoutubeURL" Type="varchar" MaxLength="500" />
+          <Property Name="FacebookAppURL" Type="varchar" MaxLength="500" />
+          <Property Name="TwitterAppURL" Type="varchar" MaxLength="500" />
+          <Property Name="InstagramAppURL" Type="varchar" MaxLength="500" />
+          <Property Name="YoutubeAppURL" Type="varchar" MaxLength="500" />
+          <Property Name="Phone1" Type="varchar" MaxLength="50" />
+          <Property Name="Phone2" Type="varchar" MaxLength="50" />
+          <Property Name="EmailID1" Type="varchar" MaxLength="50" />
+          <Property Name="EmailID2" Type="varchar" MaxLength="50" />
+          <Property Name="Latitude" Type="varchar" MaxLength="50" />
+          <Property Name="Longitude" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="OtherMediaURL1" Type="varchar" MaxLength="500" />
+          <Property Name="OtherMediaURL2" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Services">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ServiceTypeID" Type="int" />
+          <Property Name="CountryID" Type="int" />
+          <Property Name="CurrencyID" Type="int" />
+          <Property Name="CompanyID" Type="int" />
+          <Property Name="Code" Type="varchar" MaxLength="50" />
+          <Property Name="ServiceName" Type="varchar" MaxLength="50" />
+          <Property Name="ServiceCode" Type="varchar" MaxLength="50" />
+          <Property Name="ServiceDescription" Type="varchar" MaxLength="200" />
+          <Property Name="ServiceHelp" Type="varchar" MaxLength="200" />
+          <Property Name="Info1" Type="varchar" MaxLength="50" />
+          <Property Name="Info2" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="IsysCommission" Type="float" />
+          <Property Name="isCommissionFixed" Type="bit" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="TransactionsComplete">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="50" />
+          <Property Name="CountryCode" Type="varchar" MaxLength="5" />
+          <Property Name="ReferenceID" Type="varchar" MaxLength="50" />
+          <Property Name="ResponseTrackID" Type="varchar" MaxLength="50" />
+          <Property Name="Customer" Type="varchar" MaxLength="50" />
+          <Property Name="Amount" Type="float" />
+          <Property Name="ServiceCode" Type="varchar" MaxLength="50" />
+          <Property Name="PaymentChannelCode" Type="varchar" MaxLength="50" />
+          <Property Name="CurrencyCode" Type="varchar" MaxLength="5" />
+          <Property Name="TransactionDate" Type="datetime" />
+          <Property Name="ProcessTranDate" Type="datetime" />
+          <Property Name="ServiceReference" Type="varchar" MaxLength="50" />
+          <Property Name="PaymentReference" Type="varchar" MaxLength="50" />
+          <Property Name="UserReference" Type="varchar" MaxLength="50" />
+          <Property Name="Info1" Type="varchar" MaxLength="500" />
+          <Property Name="Info2" Type="varchar" MaxLength="50" />
+          <Property Name="Info3" Type="varchar" MaxLength="500" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="StatusDescription" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="AppCode" Type="varchar" MaxLength="50" />
+          <Property Name="PaymentAmount" Type="float" />
+          <Property Name="PaymentCurrencyCode" Type="varchar" MaxLength="5" />
+          <Property Name="ServiceConfigID" Type="int" />
+          <Property Name="ServicePaymentID" Type="int" />
+          <Property Name="PaymentConfigID" Type="int" />
+          <Property Name="AppVersionID" Type="int" />
+          <Property Name="CountryID" Type="int" />
+          <Property Name="CustomerID" Type="bigint" />
+          <Property Name="AppVerConfigID" Type="int" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+          <Property Name="Device" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Translations">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ReferCode" Type="varchar" MaxLength="50" />
+          <Property Name="EnglishText" Type="varchar" MaxLength="500" />
+          <Property Name="LanguageCode" Type="varchar" MaxLength="5" />
+          <Property Name="TranslatedText" Type="varchar" MaxLength="500" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="Info1" Type="varchar" MaxLength="50" />
+          <Property Name="Info2" Type="varchar" MaxLength="50" />
+          <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <Association Name="FK_AppVersionConfiguration_AppVersions">
+          <End Role="AppVersions" Type="Self.AppVersions" Multiplicity="0..1" />
+          <End Role="AppVersionConfiguration" Type="Self.AppVersionConfiguration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppVersions">
+              <PropertyRef Name="AppVersionID" />
+            </Principal>
+            <Dependent Role="AppVersionConfiguration">
+              <PropertyRef Name="AppVersionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransactionsComplete_AppVersions">
+          <End Role="AppVersions" Type="Self.AppVersions" Multiplicity="0..1" />
+          <End Role="TransactionsComplete" Type="Self.TransactionsComplete" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppVersions">
+              <PropertyRef Name="AppVersionID" />
+            </Principal>
+            <Dependent Role="TransactionsComplete">
+              <PropertyRef Name="AppVersionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GlobalPayitModelStoreContainer">
+          <EntitySet Name="AppVersionConfiguration" EntityType="Self.AppVersionConfiguration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AppVersions" EntityType="Self.AppVersions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CountryBranches" EntityType="Self.CountryBranches" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransactionsComplete" EntityType="Self.TransactionsComplete" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Translations" EntityType="Self.Translations" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AppVersionConfiguration_AppVersions" Association="Self.FK_AppVersionConfiguration_AppVersions">
+            <End Role="AppVersions" EntitySet="AppVersions" />
+            <End Role="AppVersionConfiguration" EntitySet="AppVersionConfiguration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransactionsComplete_AppVersions" Association="Self.FK_TransactionsComplete_AppVersions">
+            <End Role="AppVersions" EntitySet="AppVersions" />
+            <End Role="TransactionsComplete" EntitySet="TransactionsComplete" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GlobalPayitModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AppVersionConfiguration">
+          <Key>
+            <PropertyRef Name="AppVersionConfigID" />
+          </Key>
+          <Property Name="AppVersionConfigID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AppVersionID" Type="Int32" />
+          <Property Name="ServicesAndPaymentsID" Type="Int32" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="isTesting" Type="Boolean" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <NavigationProperty Name="AppVersion" Relationship="Self.FK_AppVersionConfiguration_AppVersions" FromRole="AppVersionConfiguration" ToRole="AppVersions" />
+        </EntityType>
+        <EntityType Name="AppVersion">
+          <Key>
+            <PropertyRef Name="AppVersionID" />
+          </Key>
+          <Property Name="AppVersionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AppPlatformID" Type="Int32" />
+          <Property Name="AppID" Type="Int32" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AppLink" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ShortLink" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="isMandatory" Type="Boolean" />
+          <Property Name="LiveDate" Type="DateTime" Precision="0" />
+          <Property Name="VersionNumber" Type="Double" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="SecretKey" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="SecureSecretKey" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AppVersionConfigurations" Relationship="Self.FK_AppVersionConfiguration_AppVersions" FromRole="AppVersions" ToRole="AppVersionConfiguration" />
+          <NavigationProperty Name="TransactionsCompletes" Relationship="GlobalPayitModel.FK_TransactionsComplete_AppVersions" FromRole="AppVersion" ToRole="TransactionsComplete" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ServiceTypeID" Type="Int32" />
+          <Property Name="CountryID" Type="Int32" />
+          <Property Name="CurrencyID" Type="Int32" />
+          <Property Name="CompanyID" Type="Int32" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ServiceName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ServiceCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ServiceDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ServiceHelp" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Info1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Info2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="IsysCommission" Type="Double" />
+          <Property Name="isCommissionFixed" Type="Boolean" />
+          <Property Name="UpdatedBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Translation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReferCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EnglishText" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="LanguageCode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="TranslatedText" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="Info1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Info2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedBy" Type="Int32" />
+        </EntityType>
+        <Association Name="FK_AppVersionConfiguration_AppVersions">
+          <End Role="AppVersions" Type="Self.AppVersion" Multiplicity="0..1" />
+          <End Role="AppVersionConfiguration" Type="Self.AppVersionConfiguration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppVersions">
+              <PropertyRef Name="AppVersionID" />
+            </Principal>
+            <Dependent Role="AppVersionConfiguration">
+              <PropertyRef Name="AppVersionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GlobalPayitEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AppVersionConfigurations" EntityType="Self.AppVersionConfiguration" />
+          <EntitySet Name="AppVersions" EntityType="Self.AppVersion" />
+          <EntitySet Name="Services" EntityType="Self.Service" />
+          <EntitySet Name="Translations" EntityType="Self.Translation" />
+          <AssociationSet Name="FK_AppVersionConfiguration_AppVersions" Association="Self.FK_AppVersionConfiguration_AppVersions">
+            <End Role="AppVersions" EntitySet="AppVersions" />
+            <End Role="AppVersionConfiguration" EntitySet="AppVersionConfigurations" />
+          </AssociationSet>
+          <EntitySet Name="CountryBranches" EntityType="GlobalPayitModel.CountryBranch" />
+          <EntitySet Name="TransactionsCompletes" EntityType="GlobalPayitModel.TransactionsComplete" />
+          <AssociationSet Name="FK_TransactionsComplete_AppVersions" Association="GlobalPayitModel.FK_TransactionsComplete_AppVersions">
+            <End Role="AppVersion" EntitySet="AppVersions" />
+            <End Role="TransactionsComplete" EntitySet="TransactionsCompletes" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="CountryBranch">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CountryID" Type="Int32" />
+          <Property Name="FacebookURL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="TwitterURL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="InstagramURL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="YoutubeURL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="FacebookAppURL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="TwitterAppURL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="InstagramAppURL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="YoutubeAppURL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Phone1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmailID1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmailID2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Latitude" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Longitude" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="OtherMediaURL1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="OtherMediaURL2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TransactionsComplete">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CountryCode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="ReferenceID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ResponseTrackID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Customer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Amount" Type="Double" />
+          <Property Name="ServiceCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PaymentChannelCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CurrencyCode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="TransactionDate" Type="DateTime" Precision="3" />
+          <Property Name="ProcessTranDate" Type="DateTime" Precision="3" />
+          <Property Name="ServiceReference" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PaymentReference" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserReference" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Info1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Info2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Info3" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="StatusDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="AppCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PaymentAmount" Type="Double" />
+          <Property Name="PaymentCurrencyCode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="ServiceConfigID" Type="Int32" />
+          <Property Name="ServicePaymentID" Type="Int32" />
+          <Property Name="PaymentConfigID" Type="Int32" />
+          <Property Name="AppVersionID" Type="Int32" />
+          <Property Name="CountryID" Type="Int32" />
+          <Property Name="CustomerID" Type="Int64" />
+          <Property Name="AppVerConfigID" Type="Int32" />
+          <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Device" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AppVersion" Relationship="GlobalPayitModel.FK_TransactionsComplete_AppVersions" FromRole="TransactionsComplete" ToRole="AppVersion" />
+        </EntityType>
+        <Association Name="FK_TransactionsComplete_AppVersions">
+          <End Type="GlobalPayitModel.AppVersion" Role="AppVersion" Multiplicity="0..1" />
+          <End Type="GlobalPayitModel.TransactionsComplete" Role="TransactionsComplete" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppVersion">
+              <PropertyRef Name="AppVersionID" />
+            </Principal>
+            <Dependent Role="TransactionsComplete">
+              <PropertyRef Name="AppVersionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GlobalPayitModelStoreContainer" CdmEntityContainer="GlobalPayitEntities">
+          <EntitySetMapping Name="AppVersionConfigurations">
+            <EntityTypeMapping TypeName="GlobalPayitModel.AppVersionConfiguration">
+              <MappingFragment StoreEntitySet="AppVersionConfiguration">
+                <ScalarProperty Name="AppVersionConfigID" ColumnName="AppVersionConfigID" />
+                <ScalarProperty Name="AppVersionID" ColumnName="AppVersionID" />
+                <ScalarProperty Name="ServicesAndPaymentsID" ColumnName="ServicesAndPaymentsID" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="isTesting" ColumnName="isTesting" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AppVersions">
+            <EntityTypeMapping TypeName="GlobalPayitModel.AppVersion">
+              <MappingFragment StoreEntitySet="AppVersions">
+                <ScalarProperty Name="AppVersionID" ColumnName="AppVersionID" />
+                <ScalarProperty Name="AppPlatformID" ColumnName="AppPlatformID" />
+                <ScalarProperty Name="AppID" ColumnName="AppID" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="AppLink" ColumnName="AppLink" />
+                <ScalarProperty Name="ShortLink" ColumnName="ShortLink" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="isMandatory" ColumnName="isMandatory" />
+                <ScalarProperty Name="LiveDate" ColumnName="LiveDate" />
+                <ScalarProperty Name="VersionNumber" ColumnName="VersionNumber" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="SecretKey" ColumnName="SecretKey" />
+                <ScalarProperty Name="SecureSecretKey" ColumnName="SecureSecretKey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Services">
+            <EntityTypeMapping TypeName="GlobalPayitModel.Service">
+              <MappingFragment StoreEntitySet="Services">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ServiceTypeID" ColumnName="ServiceTypeID" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="CurrencyID" ColumnName="CurrencyID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
+                <ScalarProperty Name="ServiceCode" ColumnName="ServiceCode" />
+                <ScalarProperty Name="ServiceDescription" ColumnName="ServiceDescription" />
+                <ScalarProperty Name="ServiceHelp" ColumnName="ServiceHelp" />
+                <ScalarProperty Name="Info1" ColumnName="Info1" />
+                <ScalarProperty Name="Info2" ColumnName="Info2" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="IsysCommission" ColumnName="IsysCommission" />
+                <ScalarProperty Name="isCommissionFixed" ColumnName="isCommissionFixed" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Translations">
+            <EntityTypeMapping TypeName="GlobalPayitModel.Translation">
+              <MappingFragment StoreEntitySet="Translations">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ReferCode" ColumnName="ReferCode" />
+                <ScalarProperty Name="EnglishText" ColumnName="EnglishText" />
+                <ScalarProperty Name="LanguageCode" ColumnName="LanguageCode" />
+                <ScalarProperty Name="TranslatedText" ColumnName="TranslatedText" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Info1" ColumnName="Info1" />
+                <ScalarProperty Name="Info2" ColumnName="Info2" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CountryBranches">
+            <EntityTypeMapping TypeName="GlobalPayitModel.CountryBranch">
+              <MappingFragment StoreEntitySet="CountryBranches">
+                <ScalarProperty Name="OtherMediaURL2" ColumnName="OtherMediaURL2" />
+                <ScalarProperty Name="OtherMediaURL1" ColumnName="OtherMediaURL1" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="EmailID2" ColumnName="EmailID2" />
+                <ScalarProperty Name="EmailID1" ColumnName="EmailID1" />
+                <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+                <ScalarProperty Name="YoutubeAppURL" ColumnName="YoutubeAppURL" />
+                <ScalarProperty Name="InstagramAppURL" ColumnName="InstagramAppURL" />
+                <ScalarProperty Name="TwitterAppURL" ColumnName="TwitterAppURL" />
+                <ScalarProperty Name="FacebookAppURL" ColumnName="FacebookAppURL" />
+                <ScalarProperty Name="YoutubeURL" ColumnName="YoutubeURL" />
+                <ScalarProperty Name="InstagramURL" ColumnName="InstagramURL" />
+                <ScalarProperty Name="TwitterURL" ColumnName="TwitterURL" />
+                <ScalarProperty Name="FacebookURL" ColumnName="FacebookURL" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransactionsCompletes">
+            <EntityTypeMapping TypeName="GlobalPayitModel.TransactionsComplete">
+              <MappingFragment StoreEntitySet="TransactionsComplete">
+                <ScalarProperty Name="Device" ColumnName="Device" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="AppVerConfigID" ColumnName="AppVerConfigID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="AppVersionID" ColumnName="AppVersionID" />
+                <ScalarProperty Name="PaymentConfigID" ColumnName="PaymentConfigID" />
+                <ScalarProperty Name="ServicePaymentID" ColumnName="ServicePaymentID" />
+                <ScalarProperty Name="ServiceConfigID" ColumnName="ServiceConfigID" />
+                <ScalarProperty Name="PaymentCurrencyCode" ColumnName="PaymentCurrencyCode" />
+                <ScalarProperty Name="PaymentAmount" ColumnName="PaymentAmount" />
+                <ScalarProperty Name="AppCode" ColumnName="AppCode" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="StatusDescription" ColumnName="StatusDescription" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Info3" ColumnName="Info3" />
+                <ScalarProperty Name="Info2" ColumnName="Info2" />
+                <ScalarProperty Name="Info1" ColumnName="Info1" />
+                <ScalarProperty Name="UserReference" ColumnName="UserReference" />
+                <ScalarProperty Name="PaymentReference" ColumnName="PaymentReference" />
+                <ScalarProperty Name="ServiceReference" ColumnName="ServiceReference" />
+                <ScalarProperty Name="ProcessTranDate" ColumnName="ProcessTranDate" />
+                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+                <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+                <ScalarProperty Name="PaymentChannelCode" ColumnName="PaymentChannelCode" />
+                <ScalarProperty Name="ServiceCode" ColumnName="ServiceCode" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Customer" ColumnName="Customer" />
+                <ScalarProperty Name="ResponseTrackID" ColumnName="ResponseTrackID" />
+                <ScalarProperty Name="ReferenceID" ColumnName="ReferenceID" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
